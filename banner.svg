@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="100%" height="100%">
+  <!-- Dark Background -->
+  <rect width="1200" height="300" fill="#0d1117" rx="15" ry="15" />
+  
+  <!-- Subtle Grid/Dot Pattern Overlay -->
+  <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1.5" fill="#ffffff" opacity="0.05"/>
+  </pattern>
+  <rect width="1200" height="300" fill="url(#dots)" rx="15" ry="15" />
+
+  <!-- Top Titles -->
+  <text x="600" y="55" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="1">E-COMMERCE ANALYTICS PIPELINE</text>
+  <text x="600" y="85" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="18" font-weight="normal" fill="#8b949e" text-anchor="middle" letter-spacing="3">TEAM: HYPER DIGI • 2025-2026</text>
+
+  <!-- Node 1: SQL Server (Data Engineering) -->
+  <g transform="translate(100, 130)">
+    <rect width="180" height="90" rx="10" fill="#1f2428" stroke="#CC2927" stroke-width="3"/>
+    <path d="M 90 25 C 130 25 150 35 150 45 C 150 55 130 65 90 65 C 50 65 30 55 30 45 C 30 35 50 25 90 25 Z" fill="none" stroke="#CC2927" stroke-width="3"/>
+    <path d="M 30 45 L 30 75 C 30 85 50 95 90 95 C 130 95 150 85 150 75 L 150 45" fill="none" stroke="#CC2927" stroke-width="3"/>
+    <text x="90" y="125" font-family="sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">1. SQL Server</text>
+    <text x="90" y="145" font-family="sans-serif" font-size="12" fill="#8b949e" text-anchor="middle">14 Tables • 20 Queries</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <g transform="translate(290, 175)">
+    <line x1="0" y1="0" x2="60" y2="0" stroke="#3fb950" stroke-width="4" stroke-dasharray="5,5"/>
+    <polygon points="60,-8 75,0 60,8" fill="#3fb950"/>
+  </g>
+
+  <!-- Node 2: Python (EDA & Feature Engineering) -->
+  <g transform="translate(360, 130)">
+    <rect width="180" height="90" rx="10" fill="#1f2428" stroke="#3776AB" stroke-width="3"/>
+    <circle cx="90" cy="50" r="25" fill="none" stroke="#3776AB" stroke-width="4"/>
+    <path d="M 80 50 L 100 50 M 90 40 L 90 60" stroke="#3776AB" stroke-width="4" stroke-linecap="round"/>
+    <text x="90" y="125" font-family="sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">2. Python EDA</text>
+    <text x="90" y="145" font-family="sans-serif" font-size="12" fill="#8b949e" text-anchor="middle">22k Records • RFM Gen</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <g transform="translate(550, 175)">
+    <line x1="0" y1="0" x2="60" y2="0" stroke="#ff7f00" stroke-width="4" stroke-dasharray="5,5"/>
+    <polygon points="60,-8 75,0 60,8" fill="#ff7f00"/>
+  </g>
+
+  <!-- Node 3: Orange DM (Machine Learning) -->
+  <g transform="translate(620, 130)">
+    <rect width="180" height="90" rx="10" fill="#1f2428" stroke="#FF7F00" stroke-width="3"/>
+    <circle cx="65" cy="65" r="12" fill="#FF7F00" opacity="0.8"/>
+    <circle cx="115" cy="35" r="18" fill="#FF7F00" opacity="0.6"/>
+    <circle cx="90" cy="80" r="8" fill="#FF7F00" opacity="0.4"/>
+    <text x="90" y="125" font-family="sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">3. Orange DM</text>
+    <text x="90" y="145" font-family="sans-serif" font-size="12" fill="#8b949e" text-anchor="middle">K-Means • Random Forest</text>
+  </g>
+
+  <!-- Arrow 3 -->
+  <g transform="translate(810, 175)">
+    <line x1="0" y1="0" x2="60" y2="0" stroke="#f2c811" stroke-width="4" stroke-dasharray="5,5"/>
+    <polygon points="60,-8 75,0 60,8" fill="#f2c811"/>
+  </g>
+
+  <!-- Node 4: Power BI (Dashboards) -->
+  <g transform="translate(880, 130)">
+    <rect width="180" height="90" rx="10" fill="#1f2428" stroke="#F2C811" stroke-width="3"/>
+    <rect x="55" y="55" width="15" height="25" fill="#F2C811"/>
+    <rect x="82" y="35" width="15" height="45" fill="#F2C811"/>
+    <rect x="109" y="20" width="15" height="60" fill="#F2C811"/>
+    <text x="90" y="125" font-family="sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">4. Power BI</text>
+    <text x="90" y="145" font-family="sans-serif" font-size="12" fill="#8b949e" text-anchor="middle">Live KPIs • 85% Conversion</text>
+  </g>
+</svg>
