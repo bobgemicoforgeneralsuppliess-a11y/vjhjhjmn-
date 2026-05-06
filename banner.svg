@@ -1,70 +1,338 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="100%" height="100%">
-  <!-- Dark Background -->
-  <rect width="1200" height="300" fill="#0d1117" rx="15" ry="15" />
-  
-  <!-- Subtle Grid/Dot Pattern Overlay -->
-  <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-    <circle cx="2" cy="2" r="1.5" fill="#ffffff" opacity="0.05"/>
-  </pattern>
-  <rect width="1200" height="300" fill="url(#dots)" rx="15" ry="15" />
+<svg viewBox="0 0 1200 340" xmlns="http://www.w3.org/2000/svg" width="1200" height="340">
+  <defs>
+    <!-- Dark background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#0D1117"/>
+      <stop offset="50%"  stop-color="#161B27"/>
+      <stop offset="100%" stop-color="#0D1117"/>
+    </linearGradient>
 
-  <!-- Top Titles -->
-  <text x="600" y="55" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="1">E-COMMERCE ANALYTICS PIPELINE</text>
-  <text x="600" y="85" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="18" font-weight="normal" fill="#8b949e" text-anchor="middle" letter-spacing="3">TEAM: HYPER DIGI • 2025-2026</text>
+    <!-- Phase node gradients -->
+    <linearGradient id="sqlGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#CC2927"/>
+      <stop offset="100%" stop-color="#8B0000"/>
+    </linearGradient>
+    <linearGradient id="pyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#3776AB"/>
+      <stop offset="100%" stop-color="#1A3F66"/>
+    </linearGradient>
+    <linearGradient id="orGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#FF6B35"/>
+      <stop offset="100%" stop-color="#C04000"/>
+    </linearGradient>
+    <linearGradient id="biGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#F2C811"/>
+      <stop offset="100%" stop-color="#A07800"/>
+    </linearGradient>
 
-  <!-- Node 1: SQL Server (Data Engineering) -->
-  <g transform="translate(100, 130)">
-    <rect width="180" height="90" rx="10" fill="#1f2428" stroke="#CC2927" stroke-width="3"/>
-    <path d="M 90 25 C 130 25 150 35 150 45 C 150 55 130 65 90 65 C 50 65 30 55 30 45 C 30 35 50 25 90 25 Z" fill="none" stroke="#CC2927" stroke-width="3"/>
-    <path d="M 30 45 L 30 75 C 30 85 50 95 90 95 C 130 95 150 85 150 75 L 150 45" fill="none" stroke="#CC2927" stroke-width="3"/>
-    <text x="90" y="125" font-family="sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">1. SQL Server</text>
-    <text x="90" y="145" font-family="sans-serif" font-size="12" fill="#8b949e" text-anchor="middle">14 Tables • 20 Queries</text>
+    <!-- Glow filter -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Subtle glow for text -->
+    <filter id="textGlow" x="-10%" y="-30%" width="120%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Arrow marker -->
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#58A6FF" opacity="0.9"/>
+    </marker>
+    <marker id="arrowDim" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#30363D"/>
+    </marker>
+
+    <!-- Grid pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#21262D" stroke-width="0.5"/>
+    </pattern>
+
+    <!-- Clip path for rounded rect -->
+    <clipPath id="roundClip">
+      <rect width="1200" height="340" rx="0"/>
+    </clipPath>
+  </defs>
+
+  <!-- ── Background ─────────────────────────────────────────────────────── -->
+  <rect width="1200" height="340" fill="url(#bgGrad)"/>
+  <rect width="1200" height="340" fill="url(#grid)" opacity="0.4"/>
+
+  <!-- ── Accent line top ────────────────────────────────────────────────── -->
+  <rect x="0" y="0"   width="1200" height="3"
+        fill="url(#pyGrad)" opacity="0.8"/>
+  <!-- ── Accent line bottom ─────────────────────────────────────────────── -->
+  <rect x="0" y="337" width="1200" height="3"
+        fill="url(#biGrad)" opacity="0.6"/>
+
+  <!-- ── Decorative glow blobs ─────────────────────────────────────────── -->
+  <circle cx="600" cy="170" r="200" fill="#58A6FF" opacity="0.03"/>
+  <circle cx="100" cy="50"  r="100" fill="#CC2927"  opacity="0.06"/>
+  <circle cx="1100" cy="290" r="120" fill="#F2C811" opacity="0.05"/>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       HEADER BLOCK
+       ══════════════════════════════════════════════════════════════════ -->
+
+  <!-- Main Title -->
+  <text x="600" y="60"
+        font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+        font-size="30" font-weight="700" fill="#E6EDF3"
+        text-anchor="middle" filter="url(#textGlow)"
+        letter-spacing="1">
+    🛒 E-Commerce Analytics Pipeline
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="92"
+        font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+        font-size="13.5" font-weight="400" fill="#8B949E"
+        text-anchor="middle" letter-spacing="2">
+    DATABASE  ·  PYTHON EDA  ·  MACHINE LEARNING  ·  BUSINESS INTELLIGENCE
+  </text>
+
+  <!-- Thin separator line -->
+  <line x1="200" y1="106" x2="1000" y2="106"
+        stroke="#30363D" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       PIPELINE NODES  (4 phases)
+       positions: 130, 390, 650, 910  (center x)
+       ══════════════════════════════════════════════════════════════════ -->
+
+  <!-- ── PHASE 1: SQL Server ───────────────────────────────────────────── -->
+  <g filter="url(#glow)">
+    <rect x="50" y="128" width="160" height="105" rx="14"
+          fill="url(#sqlGrad)" opacity="0.18" stroke="#CC2927"
+          stroke-width="1.5"/>
   </g>
+  <!-- Icon circle -->
+  <circle cx="130" cy="162" r="22" fill="#CC2927" opacity="0.25"/>
+  <text x="130" y="169"
+        font-family="'Segoe UI Emoji', sans-serif"
+        font-size="20" text-anchor="middle" fill="#CC2927">🗄️</text>
+  <!-- Label -->
+  <text x="130" y="200"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="13" font-weight="700" fill="#FF6E6E"
+        text-anchor="middle">SQL Server</text>
+  <text x="130" y="218"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="10.5" fill="#8B949E" text-anchor="middle">14 Tables · 22 FKs</text>
+  <text x="130" y="232"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="10.5" fill="#8B949E" text-anchor="middle">10 Business Queries</text>
+  <!-- Phase badge -->
+  <rect x="60" y="130" width="60" height="18" rx="9"
+        fill="#CC2927" opacity="0.35"/>
+  <text x="90" y="143"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="9" fill="#FF6E6E" text-anchor="middle"
+        font-weight="600" letter-spacing="0.5">PHASE 1</text>
 
-  <!-- Arrow 1 -->
-  <g transform="translate(290, 175)">
-    <line x1="0" y1="0" x2="60" y2="0" stroke="#3fb950" stroke-width="4" stroke-dasharray="5,5"/>
-    <polygon points="60,-8 75,0 60,8" fill="#3fb950"/>
-  </g>
+  <!-- Arrow 1→2 -->
+  <line x1="215" y1="180" x2="305" y2="180"
+        stroke="#58A6FF" stroke-width="2"
+        stroke-dasharray="0" opacity="0.7"
+        marker-end="url(#arrowBlue)"/>
+  <!-- Arrow label -->
+  <text x="260" y="170"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="9" fill="#58A6FF" text-anchor="middle"
+        opacity="0.8">CSV Export</text>
 
-  <!-- Node 2: Python (EDA & Feature Engineering) -->
-  <g transform="translate(360, 130)">
-    <rect width="180" height="90" rx="10" fill="#1f2428" stroke="#3776AB" stroke-width="3"/>
-    <circle cx="90" cy="50" r="25" fill="none" stroke="#3776AB" stroke-width="4"/>
-    <path d="M 80 50 L 100 50 M 90 40 L 90 60" stroke="#3776AB" stroke-width="4" stroke-linecap="round"/>
-    <text x="90" y="125" font-family="sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">2. Python EDA</text>
-    <text x="90" y="145" font-family="sans-serif" font-size="12" fill="#8b949e" text-anchor="middle">22k Records • RFM Gen</text>
+  <!-- ── PHASE 2: Python EDA ────────────────────────────────────────────── -->
+  <g filter="url(#glow)">
+    <rect x="310" y="128" width="160" height="105" rx="14"
+          fill="url(#pyGrad)" opacity="0.18" stroke="#3776AB"
+          stroke-width="1.5"/>
   </g>
+  <circle cx="390" cy="162" r="22" fill="#3776AB" opacity="0.25"/>
+  <text x="390" y="169"
+        font-family="'Segoe UI Emoji', sans-serif"
+        font-size="20" text-anchor="middle" fill="#58A6FF">🐍</text>
+  <text x="390" y="200"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="13" font-weight="700" fill="#79C0FF"
+        text-anchor="middle">Python EDA</text>
+  <text x="390" y="218"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="10.5" fill="#8B949E" text-anchor="middle">22,049 Records</text>
+  <text x="390" y="232"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="10.5" fill="#8B949E" text-anchor="middle">20 Analytical Qs</text>
+  <rect x="320" y="130" width="60" height="18" rx="9"
+        fill="#3776AB" opacity="0.35"/>
+  <text x="350" y="143"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="9" fill="#79C0FF" text-anchor="middle"
+        font-weight="600" letter-spacing="0.5">PHASE 2</text>
 
-  <!-- Arrow 2 -->
-  <g transform="translate(550, 175)">
-    <line x1="0" y1="0" x2="60" y2="0" stroke="#ff7f00" stroke-width="4" stroke-dasharray="5,5"/>
-    <polygon points="60,-8 75,0 60,8" fill="#ff7f00"/>
-  </g>
+  <!-- Arrow 2→3 -->
+  <line x1="475" y1="180" x2="565" y2="180"
+        stroke="#58A6FF" stroke-width="2" opacity="0.7"
+        marker-end="url(#arrowBlue)"/>
+  <text x="520" y="170"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="9" fill="#58A6FF" text-anchor="middle"
+        opacity="0.8">ML Features</text>
 
-  <!-- Node 3: Orange DM (Machine Learning) -->
-  <g transform="translate(620, 130)">
-    <rect width="180" height="90" rx="10" fill="#1f2428" stroke="#FF7F00" stroke-width="3"/>
-    <circle cx="65" cy="65" r="12" fill="#FF7F00" opacity="0.8"/>
-    <circle cx="115" cy="35" r="18" fill="#FF7F00" opacity="0.6"/>
-    <circle cx="90" cy="80" r="8" fill="#FF7F00" opacity="0.4"/>
-    <text x="90" y="125" font-family="sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">3. Orange DM</text>
-    <text x="90" y="145" font-family="sans-serif" font-size="12" fill="#8b949e" text-anchor="middle">K-Means • Random Forest</text>
+  <!-- ── PHASE 3: Orange DM ─────────────────────────────────────────────── -->
+  <g filter="url(#glow)">
+    <rect x="570" y="128" width="160" height="105" rx="14"
+          fill="url(#orGrad)" opacity="0.18" stroke="#FF6B35"
+          stroke-width="1.5"/>
   </g>
+  <circle cx="650" cy="162" r="22" fill="#FF6B35" opacity="0.25"/>
+  <text x="650" y="169"
+        font-family="'Segoe UI Emoji', sans-serif"
+        font-size="20" text-anchor="middle" fill="#FF6B35">🤖</text>
+  <text x="650" y="200"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="13" font-weight="700" fill="#FFA06E"
+        text-anchor="middle">Orange DM</text>
+  <text x="650" y="218"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="10.5" fill="#8B949E" text-anchor="middle">35 Widgets · K-Means</text>
+  <text x="650" y="232"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="10.5" fill="#8B949E" text-anchor="middle">Random Forest AUC=0.80</text>
+  <rect x="580" y="130" width="60" height="18" rx="9"
+        fill="#FF6B35" opacity="0.35"/>
+  <text x="610" y="143"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="9" fill="#FFA06E" text-anchor="middle"
+        font-weight="600" letter-spacing="0.5">PHASE 3</text>
 
-  <!-- Arrow 3 -->
-  <g transform="translate(810, 175)">
-    <line x1="0" y1="0" x2="60" y2="0" stroke="#f2c811" stroke-width="4" stroke-dasharray="5,5"/>
-    <polygon points="60,-8 75,0 60,8" fill="#f2c811"/>
-  </g>
+  <!-- Arrow 3→4 -->
+  <line x1="735" y1="180" x2="825" y2="180"
+        stroke="#58A6FF" stroke-width="2" opacity="0.7"
+        marker-end="url(#arrowBlue)"/>
+  <text x="780" y="170"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="9" fill="#58A6FF" text-anchor="middle"
+        opacity="0.8">Predictions</text>
 
-  <!-- Node 4: Power BI (Dashboards) -->
-  <g transform="translate(880, 130)">
-    <rect width="180" height="90" rx="10" fill="#1f2428" stroke="#F2C811" stroke-width="3"/>
-    <rect x="55" y="55" width="15" height="25" fill="#F2C811"/>
-    <rect x="82" y="35" width="15" height="45" fill="#F2C811"/>
-    <rect x="109" y="20" width="15" height="60" fill="#F2C811"/>
-    <text x="90" y="125" font-family="sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">4. Power BI</text>
-    <text x="90" y="145" font-family="sans-serif" font-size="12" fill="#8b949e" text-anchor="middle">Live KPIs • 85% Conversion</text>
+  <!-- ── PHASE 4: Power BI ──────────────────────────────────────────────── -->
+  <g filter="url(#glow)">
+    <rect x="830" y="128" width="160" height="105" rx="14"
+          fill="url(#biGrad)" opacity="0.18" stroke="#F2C811"
+          stroke-width="1.5"/>
   </g>
+  <circle cx="910" cy="162" r="22" fill="#F2C811" opacity="0.20"/>
+  <text x="910" y="169"
+        font-family="'Segoe UI Emoji', sans-serif"
+        font-size="20" text-anchor="middle" fill="#F2C811">📊</text>
+  <text x="910" y="200"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="13" font-weight="700" fill="#FFE066"
+        text-anchor="middle">Power BI</text>
+  <text x="910" y="218"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="10.5" fill="#8B949E" text-anchor="middle">3 Dashboards · $7.92M</text>
+  <text x="910" y="232"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="10.5" fill="#8B949E" text-anchor="middle">85.71% Conversion</text>
+  <rect x="840" y="130" width="60" height="18" rx="9"
+        fill="#F2C811" opacity="0.30"/>
+  <text x="870" y="143"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="9" fill="#FFE066" text-anchor="middle"
+        font-weight="600" letter-spacing="0.5">PHASE 4</text>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       KPI METRICS ROW
+       ══════════════════════════════════════════════════════════════════ -->
+
+  <!-- Separator -->
+  <line x1="50" y1="258" x2="1150" y2="258"
+        stroke="#21262D" stroke-width="1"/>
+
+  <!-- KPI 1 -->
+  <text x="170" y="282"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="20" font-weight="800" fill="#FF6E6E"
+        text-anchor="middle">22,049</text>
+  <text x="170" y="300"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="10" fill="#6E7681" text-anchor="middle"
+        letter-spacing="1">RECORDS</text>
+
+  <!-- Divider -->
+  <line x1="310" y1="268" x2="310" y2="308"
+        stroke="#21262D" stroke-width="1"/>
+
+  <!-- KPI 2 -->
+  <text x="440" y="282"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="20" font-weight="800" fill="#79C0FF"
+        text-anchor="middle">$7.92M</text>
+  <text x="440" y="300"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="10" fill="#6E7681" text-anchor="middle"
+        letter-spacing="1">TOTAL REVENUE</text>
+
+  <!-- Divider -->
+  <line x1="570" y1="268" x2="570" y2="308"
+        stroke="#21262D" stroke-width="1"/>
+
+  <!-- KPI 3 -->
+  <text x="700" y="282"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="20" font-weight="800" fill="#FFA06E"
+        text-anchor="middle">AUC 0.802</text>
+  <text x="700" y="300"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="10" fill="#6E7681" text-anchor="middle"
+        letter-spacing="1">RANDOM FOREST</text>
+
+  <!-- Divider -->
+  <line x1="830" y1="268" x2="830" y2="308"
+        stroke="#21262D" stroke-width="1"/>
+
+  <!-- KPI 4 -->
+  <text x="960" y="282"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="20" font-weight="800" fill="#FFE066"
+        text-anchor="middle">85.71%</text>
+  <text x="960" y="300"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="10" fill="#6E7681" text-anchor="middle"
+        letter-spacing="1">CART CONVERSION</text>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       TEAM BRAND — RIGHT SIDE
+       ══════════════════════════════════════════════════════════════════ -->
+
+  <!-- Vertical divider before branding -->
+  <line x1="1090" y1="268" x2="1090" y2="308"
+        stroke="#21262D" stroke-width="1"/>
+
+  <!-- Team name -->
+  <text x="1145" y="282"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="15" font-weight="800" fill="#E6EDF3"
+        text-anchor="middle" letter-spacing="1">Hyper Digi</text>
+  <text x="1145" y="300"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="9.5" fill="#6E7681" text-anchor="middle"
+        letter-spacing="1">2025 – 2026</text>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       DECORATIVE CIRCUIT LINES (background detail)
+       ══════════════════════════════════════════════════════════════════ -->
+  <line x1="0"    y1="115" x2="1200" y2="115"
+        stroke="#21262D" stroke-width="0.5" opacity="0.6"/>
+  <line x1="1060" y1="115" x2="1060" y2="340"
+        stroke="#21262D" stroke-width="0.5" opacity="0.4"/>
+  <circle cx="1060" cy="115" r="4" fill="#30363D"/>
+
 </svg>
